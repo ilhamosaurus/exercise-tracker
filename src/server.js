@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const router = require('./router');
 
 app.use(cors());
 app.use(express.static('public'));
@@ -13,7 +14,9 @@ const init = async () => {
     console.log('Your app is listening on port ' + listener.address().port);
   })
 
+  app.set("view engine", "ejs");
 
+  app.use('/api', router);
 }
 
 init();
