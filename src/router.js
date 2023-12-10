@@ -1,8 +1,7 @@
 const express = require('express');
+const { landPageHandler } = require('./handler');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('index');
-});
+router.get('/', landPageHandler);
 
 module.exports = router;
