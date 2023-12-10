@@ -4,4 +4,10 @@ const landPageHandler = (req, res) => {
   res.render("index");
 }
 
-module.exports = { landPageHandler }
+const getUsersHandler = async (req, res) => {
+  const users = await User.find();
+
+  res.send(users);
+}
+
+module.exports = { landPageHandler, getUsersHandler }
